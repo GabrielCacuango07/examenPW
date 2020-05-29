@@ -18,7 +18,7 @@ const argumentos = {
     }
 }
 const argv = require('yargs')
-    .command('mostrar', ' Publica las estadisticas de una pagina web', argumentos)
+    .command('mostrar', ' Publica el valor buscado', argumentos)
     .command('guardar', 'Almacena los resultados de las estadisticas de un archivo', argumentos)
     .help()
     .demandCommand(1)

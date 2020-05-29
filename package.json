@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "chalk": "^4.0.0",
+    "csvtojson": "^2.0.10",
     "open": "^7.0.4",
     "yargs": "^15.3.1"
   },
