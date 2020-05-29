@@ -1,0 +1,7 @@
+{
+  "Datos": "Personas que usan Internet (% de la población)",
+  "codigo": "ECU",
+  "nombre": "Ecuador",
+  "anio": 2012,
+  "Valor": 35.1351464545516
+}

@@ -31,7 +31,10 @@ switch (comand) {
             test = getCountryData(data, pais, anio)
             saveData(test, pais, anio).catch(err => console.log(chalk.bgRed.bold.white(err)))
         }
+
         save().then()
+
+
 
         break;
     default:

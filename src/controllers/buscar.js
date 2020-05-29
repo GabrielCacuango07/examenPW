@@ -1,4 +1,4 @@
-const { promises: fs } = require('fs');
+const { promises: fs, mkdir } = require('fs');
 const csvToJson = require('csvtojson');
 const open = require('open');
 const chalk = require('chalk');
@@ -8,26 +8,22 @@ const saveData = async(datos, pais, anio) => {
     let date = JSON.stringify(datos, 1, 2);
     path = `${pais}-${anio}.txt`
     var dir = './src/resultados'
-    fs.mkdir(dir, function(e) {
+
+    mkdir(dir, function(e) {
         if (!e || (e && e.code === 'EEXIST')) {
             //do something with contents 
-            console.log('hola ');
+            fs.writeFile(`${dir}/${path}`, date)
+            console.log(
+                chalk.cyan('El archivo ha sido guardado puedes verlo en el siguiente directorio: ') +
+                chalk.yellow(`${dir}/${path}`));
+            open(`${dir}/${path}`)
         } else {
             //debug console.log(e); 
             console.log('no existe');
+
         }
     });
 
-    try {
-        await fs.writeFile(`${dir}/${path}`, date)
-        console.log(
-            chalk.cyan('El archivo ha sido guardado puedes verlo en el siguiente directorio: ') +
-            chalk.yellow(`${dir}/${path}`));
-        await open(`${dir}/${path}`)
-
-    } catch (error) {
-        throw new String('Error al guardar el archivo, no tiene permisos')
-    }
 }
 
 const getCountryData = (data, code, anio) => {
