@@ -26,6 +26,13 @@ switch (comand) {
         break;
     case 'guardar':
         console.log('comando guardar ');
+        let save = async() => {
+            data = await importCSV(arch);
+            test = getCountryData(data, pais, anio)
+            saveData(test, pais, anio).catch(err => console.log(chalk.bgRed.bold.white(err)))
+        }
+        save().then()
+
         break;
     default:
         console.log('Comando no reconocido');

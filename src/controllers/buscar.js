@@ -4,13 +4,13 @@ const open = require('open');
 const chalk = require('chalk');
 const validCountries = require('../model/includes.json');
 
-const saveData = async(datos, path) => {
+const saveData = async(datos, pais, anio) => {
     let date = JSON.stringify(datos, null, 2);
-    path = `${path}.json`
+    path = `${pais}-${anio}.txt`
     try {
         await fs.writeFile(path, date)
         console.log(
-            chalk.cyan('The file has been saved! You can see it in the path: ') +
+            chalk.cyan('El archivo ha sido guardado puedes verlo en el siguiente directorio: ') +
             chalk.yellow(path));
         await open(path)
 
@@ -29,11 +29,11 @@ const getCountryData = (data, code, anio) => {
 
 
     return {
-        Datos: (parseFloat(myCountry[anio]) / 100),
-        Valor: parseFloat(myCountry[anio]),
+        Datos: myCountry['Indicator Name'],
         codigo: myCountry['Country Code'],
         nombre: myCountry['Country Name'],
-        anio
+        anio,
+        Valor: parseFloat(myCountry[anio])
     };
 
 
