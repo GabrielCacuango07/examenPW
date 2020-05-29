@@ -5,14 +5,25 @@ const chalk = require('chalk');
 const validCountries = require('../model/includes.json');
 
 const saveData = async(datos, pais, anio) => {
-    let date = JSON.stringify(datos, null, 2);
+    let date = JSON.stringify(datos, 1, 2);
     path = `${pais}-${anio}.txt`
+    var dir = './src/resultados'
+    fs.mkdir(dir, function(e) {
+        if (!e || (e && e.code === 'EEXIST')) {
+            //do something with contents 
+            console.log('hola ');
+        } else {
+            //debug console.log(e); 
+            console.log('no existe');
+        }
+    });
+
     try {
-        await fs.writeFile(path, date)
+        await fs.writeFile(`${dir}/${path}`, date)
         console.log(
             chalk.cyan('El archivo ha sido guardado puedes verlo en el siguiente directorio: ') +
-            chalk.yellow(path));
-        await open(path)
+            chalk.yellow(`${dir}/${path}`));
+        await open(`${dir}/${path}`)
 
     } catch (error) {
         throw new String('Error al guardar el archivo, no tiene permisos')

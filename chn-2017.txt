@@ -1,7 +1,0 @@
-{
-  "Datos": "Personas que usan Internet (% de la población)",
-  "codigo": "CHN",
-  "nombre": "China",
-  "anio": 2017,
-  "Valor": 54.3
-}
