@@ -1,0 +1,25 @@
+{
+  "name": "prueb_git",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "open": "^7.0.4",
+    "yargs": "^15.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielCacuango07/examenPW.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GabrielCacuango07/examenPW/issues"
+  },
+  "homepage": "https://github.com/GabrielCacuango07/examenPW#readme"
+}
